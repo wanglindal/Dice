@@ -1,12 +1,14 @@
-int dot=(int)(Math.random()*6+1);
+
 void setup()
 {
-	size(520,520);
+	size(520,560);
 	noLoop();
 }
 void draw()
 {
 	background(155);
+	textSize(20);
+	text("Sum of All Rolls: ",140,535);
 	for(int x=25; x<500; x=x+100)
 	{
 		for(int y=25; y<500; y=y+100)
@@ -15,7 +17,7 @@ void draw()
 	theDie.show();
 	
 }
-	}//your code here
+	}
 }
 void mousePressed()
 {
@@ -46,12 +48,37 @@ class Die //models one single dice cube
 			point(myX+20,myY+25);
 			point(myX+50,myY+45);
 		}
-		
-		
-	
+		else if (dot ==3)
+		{
+			point(myX+20,myY+20);
+			point(myX+35,myY+35);
+			point(myX+50,myY+50);
+		}
+		else if(dot==4)
+		{
+			point(myX+20,myY+25);
+			point(myX+20,myY+48);
+			point(myX+50,myY+25);
+			point(myX+50,myY+48);
+		}
+		else if(dot==5)
+		{
+			point(myX+20,myY+23);
+			point(myX+20,myY+50);
+			point(myX+50,myY+23);
+			point(myX+50,myY+50);
+			point(myX+35,myY+37);
+		}
+		else if(dot==6)
+		{
+			point(myX+20,myY+20);
+			point(myX+20,myY+35);
+			point(myX+20,myY+50);
+			point(myX+50,myY+20);
+			point(myX+50,myY+35);
+			point(myX+50,myY+50);
+		}
 
-		
-	//your code here
 	}
 
 	void show()
