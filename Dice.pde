@@ -6,18 +6,24 @@ void setup()
 }
 void draw()
 {
-	background(155);
+	int numDot = 0;
+	background(9,9,47);
 	textSize(20);
-	text("Sum of All Rolls: ",140,535);
 	for(int x=25; x<500; x=x+100)
 	{
 		for(int y=25; y<500; y=y+100)
 		{
 	Die theDie = new Die(x,y);
 	theDie.show();
-	
-}
+	if(numDot>=0)//mousePressed==true)
+	{
+		numDot=numDot+ theDie.dot;
 	}
+		}
+	}
+	
+		text("Sum of All Rolls: " + numDot ,170,535);
+	
 }
 void mousePressed()
 {
@@ -25,22 +31,25 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
+
 	int myX, myY;//variable declarations here
 	Die(int x, int y) //constructor
 	{
 		myX=x;
 		myY=y;//variable initializations here
 	}
+	int dot=(int)(Math.random()*6+1);
 	void roll()
 	{
-		int dot=(int)(Math.random()*6+1);
-		System.out.println(dot);
+
+		//System.out.println(dot);
 		strokeWeight(10);
 		stroke(10);
+		stroke((int)(Math.random()*255+1),(int)(Math.random()*255+1),(int)(Math.random()*255+1));
 		if (dot==1)
 		{
 		
-			fill(255);
+			
 			point(myX+33,myY+33);
 		}
 		else if (dot==2)
@@ -79,6 +88,7 @@ class Die //models one single dice cube
 			point(myX+50,myY+50);
 		}
 
+
 	}
 
 	void show()
@@ -86,6 +96,7 @@ class Die //models one single dice cube
 		noStroke();
 		rect(myX,myY,70,70,60);//your code here
 		roll();
+
 	}
 }
 
